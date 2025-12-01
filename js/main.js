@@ -17,13 +17,14 @@ function manejarBusqueda(event) {
     const datosFiltrados = data.filter(contacto => {
         const nombreMinusculas = contacto.nombre.toLowerCase();
       
-        const ciudadMinusculas = contacto.info.ciudad ? contacto.info.ciudad.toLowerCase() : "";
+        const ciudadMinusculas = contacto.info.ciudad.toLowerCase();
 
-        const emailMinusculas = contacto.info.email ? contacto.info.email.toLowerCase() : "";
+        const emailMinusculas = contacto.info.email.toLowerCase();
 
 
         return nombreMinusculas.includes(textoBusqueda) ||
-               ciudadMinusculas.includes(textoBusqueda);
+               ciudadMinusculas.includes(textoBusqueda) ||
+               emailMinusculas.includes(textoBusqueda);
     });
 
     renderTable(datosFiltrados);
